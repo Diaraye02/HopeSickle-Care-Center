@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#home -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HopeSickle Care Center – Ensemble pour une vie plus saine</title>
+  <meta name="description" content="HopeSickle Care Center : centre médical spécialisé dans la prise en charge de la drépanocytose. Consultations, suivi, nutrition, prévention, sensibilisation.">
+
+  <style>
+    :root{
+      --blue:#a6dcef;
+      --green:#b8e0d2;
+      --white:#ffffff;
+      --ink:#14323b;
+      --muted:#5b7680;
+      --bg:#f7fbfd;
+      --shadow:0 10px 30px rgba(20,50,59,.08);
+      --radius:14px;
+      --radius-sm:10px;
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Ubuntu,"Helvetica Neue",Arial,sans-serif;
+      color:var(--ink); background:var(--bg); line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--max); margin:auto; padding:0 20px}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:50; background:rgba(255,255,255,.85); backdrop-filter:saturate(180%) blur(10px);
+      border-bottom:1px solid #e8f2f6;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; min-height:64px}
+    .brand{display:flex; align-items:center; gap:10px; font-weight:700}
+    .logo{
+      width:80px; height:80px; border-radius:10px;
+      /* background:
+        radial-gradient(circle at 30% 30%, var(--green), transparent 60%),
+        radial-gradient(circle at 70% 70%, var(--blue), transparent 60%), #e9f6ff; */
+      display:grid; place-items:center; box-shadow:var(--shadow);
+    }
+    .logo svg{width:22px; height:22px}
+    nav ul{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+    .cta{
+      background:var(--ink); color:#fff; padding:10px 16px; border-radius:999px; font-weight:600; border:0; cursor:pointer;
+      transition:transform .06s ease, box-shadow .2s ease;
+      box-shadow:0 6px 18px rgba(20,50,59,.18);
+    }
+    .cta:is(:hover,:focus){transform:translateY(-1px)}
+    .ghost{background:transparent; color:var(--ink); border:1px solid #cfe7ef; box-shadow:none}
+
+    /* Burger */
+    .burger{display:none; background:transparent; border:0; cursor:pointer; padding:8px}
+    .burger span{display:block; width:24px; height:2px; background:var(--ink); margin:5px 0; border-radius:2px}
+
+    /* Mobile menu */
+    .menu{display:flex; align-items:center; gap:16px}
+    @media (max-width:900px){
+      nav{display:none}
+      .burger{display:block}
+      .menu.open nav{display:block; position:absolute; left:0; right:0; top:64px; background:#fff; border-bottom:1px solid #e8f2f6}
+      .menu.open nav ul{flex-direction:column; padding:14px 20px}
+    }
+
+    /* Hero */
+    .hero{
+      position:relative; overflow:hidden; background:
+        linear-gradient(180deg, #e9f7ff 0%, #ffffff 100%);
+    }
+    .hero .wrap{display:grid; grid-template-columns:1.1fr .9fr; gap:36px; align-items:center; padding:64px 0}
+    .badge{display:inline-flex; gap:8px; align-items:center; background:#eef9ff; border:1px solid #d7eef7; color:#255a66; padding:6px 10px; border-radius:999px; font-size:13px}
+    h1{font-size:42px; line-height:1.1; margin:10px 0 14px}
+    .lead{color:var(--muted); font-size:18px; margin-bottom:22px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap}
+    .mock{
+      aspect-ratio: 4/3; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+      background-image: url('data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="%23b8e0d2" offset="0"/><stop stop-color="%23a6dcef" offset="1"/></linearGradient></defs><rect width="1200" height="900" fill="url(%23g)"/><g fill="%23ffffff" fill-opacity=".9"><circle cx="950" cy="220" r="140"/><rect x="80" y="620" width="1040" height="140" rx="20"/></g></svg>');
+      background-size:cover; background-position:center;
+    }
+    @media (max-width:900px){
+      .hero .wrap{grid-template-columns:1fr}
+      h1{font-size:34px}
+    }
+
+    /* Sections */
+    section{padding:70px 0}
+    section h2{font-size:32px; margin:0 0 14px}
+    .sub{color:var(--muted); margin:0 0 28px}
+
+    /* About */
+    .about{display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:center}
+    .card{
+      background:#fff; border:1px solid #e9f4f7; border-radius:var(--radius); padding:22px; box-shadow:var(--shadow);
+    }
+    @media (max-width:900px){.about{grid-template-columns:1fr}}
+
+    /* Services */
+    .grid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+    .service{background:#fff; border:1px solid #e9f4f7; border-radius:var(--radius); padding:18px; box-shadow:var(--shadow)}
+    .service h3{margin:10px 0 6px; font-size:18px}
+    .icon{width:38px; height:38px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,var(--blue),var(--green)); color:#fff}
+    @media (max-width:1100px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:780px){.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:520px){.grid{grid-template-columns:1fr}}
+
+    /* Team */
+    .team{display:grid; grid-template-columns:repeat(4,1fr); gap:16px}
+    .person{background:#fff; border:1px solid #e9f4f7; border-radius:var(--radius); padding:16px; box-shadow:var(--shadow); text-align:center}
+    .avatar{width:88px; height:88px; border-radius:50%; margin:10px auto; background:
+      radial-gradient(circle at 30% 30%, var(--blue), transparent 60%),
+      radial-gradient(circle at 70% 70%, var(--green), transparent 60%), #eaf8ff;}
+    .person h3{margin:8px 0 2px; font-size:18px}
+    .person p{margin:0; color:var(--muted); font-size:14px}
+    @media (max-width:980px){.team{grid-template-columns:repeat(3,1fr)}}
+    @media (max-width:720px){.team{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:480px){.team{grid-template-columns:1fr}}
+
+    /* Testimonials */
+    .carousel{position:relative}
+    .slides{display:flex; overflow:hidden; border-radius:var(--radius);}
+    .slide{min-width:100%; background:#fff; border:1px solid #e9f4f7; padding:22px; box-shadow:var(--shadow)}
+    .t-row{display:flex; gap:14px; align-items:center; margin-bottom:8px}
+    .t-avatar{width:44px; height:44px; border-radius:50%; background:#eaf8ff}
+    .dots{display:flex; gap:6px; justify-content:center; margin-top:10px}
+    .dot{width:8px; height:8px; border-radius:50%; background:#cfe7ef; cursor:pointer}
+    .dot.active{background:var(--ink)}
+    .ctrl{position:absolute; top:50%; transform:translateY(-50%); background:#fff; border:1px solid #e9f4f7; width:36px; height:36px; border-radius:50%; display:grid; place-items:center; cursor:pointer; box-shadow:var(--shadow)}
+    .prev{left:-10px} .next{right:-10px}
+
+    /* Blog */
+    .blog{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+    .post{background:#fff; border:1px solid #e9f4f7; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
+    .post .content{padding:16px}
+    .post h3{margin:6px 0 8px; font-size:18px}
+    .post p{margin:0; color:var(--muted); font-size:14px}
+    @media (max-width:980px){.blog{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:620px){.blog{grid-template-columns:1fr}}
+
+    /* Booking */
+    .booking{
+      display:grid; grid-template-columns:1.1fr .9fr; gap:24px; align-items:start;
+    }
+    @media (max-width:900px){.booking{grid-template-columns:1fr}}
+    .field{display:flex; flex-direction:column; gap:6px}
+    input, textarea, select{
+      padding:12px 14px; border:1px solid #dbeff5; border-radius:12px; background:#fff; font:inherit;
+    }
+    textarea{min-height:120px; resize:vertical}
+    form .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media (max-width:560px){form .row{grid-template-columns:1fr}}
+
+    /* Contact card */
+    .contact-card{display:grid; grid-template-columns:.7fr 1.3fr; gap:18px}
+    @media (max-width:860px){.contact-card{grid-template-columns:1fr}}
+    .map{
+      aspect-ratio: 4/3; border-radius:var(--radius); background:#eaf8ff; border:1px solid #e9f4f7; box-shadow:var(--shadow);
+      background-image: url('data:image/svg+xml;utf8,<?xml version="1.0"?><svg xmlns="http://www.w3.org/2000/svg" width="1000" height="750"><rect width="1000" height="750" fill="%23eef9ff"/><g stroke="%23a6dcef" stroke-width="2"><line x1="0" y1="200" x2="1000" y2="200"/><line x1="0" y1="450" x2="1000" y2="450"/></g><circle cx="520" cy="340" r="22" fill="%23b8e0d2"/></svg>');
+      background-size:cover; background-position:center;
+    }
+
+    /* Footer */
+    footer{background:#0f2a31; color:#d6eef5; padding:36px 0 24px; margin-top:20px}
+    .fgrid{display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:16px}
+    .fgrid a{color:#e7fbff}
+    .footbar{display:flex; justify-content:space-between; align-items:center; border-top:1px solid #1f424a; margin-top:18px; padding-top:14px; font-size:14px}
+    @media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}}
+    @media (max-width:560px){.fgrid{grid-template-columns:1fr}}
+
+    /* Small helpers */
+    .kpis{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:10px}
+    .kpi{background:#fff; border:1px solid #e9f4f7; border-radius:var(--radius-sm); padding:14px; text-align:center}
+  </style>
+<style type="text/css" id="operaUserStyle"></style></head>
+
+<body>
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="container nav">
+      <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#" class="brand" aria-label="HopeSickle Care Center - Accueil">
+        <div class="logo" aria-hidden="true">
+          <!-- petite icône médicale -->
+          <!-- <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Icône médicale">
+            <path d="M12 2v20M2 12h20"/>
+          </svg> -->
+          <img class="logo_projet" src="./HopeSickle Care Center – Ensemble pour une vie plus saine_files/logo_projet.jpg" alt="logo" style="width: 150px;height: 50px; border-radius: 5px;">
+        </div>
+        <span>HopeSickle Care Center</span>
+      </a>
+
+      <div class="menu" id="menu">
+        <nav aria-label="Navigation principale">
+          <ul>
+            <li><a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#home">Accueil</a></li>
+            <li><a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#about">À propos</a></li>
+            <li><a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#services">Services</a></li>
+            <li><a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#team">Équipe</a></li>
+            <li><a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#testimonials">Témoignages</a></li>
+            <li><a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#blog">Blog</a></li>
+            <li><a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <button class="cta" data-scroll="#booking">Prendre rendez-vous</button>
+        <button class="burger" id="burger" aria-label="Ouvrir le menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero" id="home">
+    <div class="container wrap">
+      <div>
+        <span class="badge">Centre spécialisé drépanocytose</span>
+        <h1>Ensemble pour une vie plus saine</h1>
+        <p class="lead">
+          Prévention, traitement et accompagnement des patients drépanocytaires, avec une équipe
+          pluridisciplinaire dédiée au bien-être des familles.
+        </p>
+        <div class="kpis">
+          <div class="kpi"><strong>24/7</strong><br>Assistance</div>
+          <div class="kpi"><strong>+1 500</strong><br>Consultations/an</div>
+          <div class="kpi"><strong>98%</strong><br>Satisfaction</div>
+        </div>
+        <div class="cta-row" style="margin-top:16px">
+          <button class="cta" data-scroll="#booking">Prendre rendez-vous</button>
+          <button class="cta ghost" data-scroll="#contact">Nous contacter</button>
+        </div>
+      </div>
+
+      <div>
+        <!-- TODO: remplacer l’image ci-dessous par une image IA du centre -->
+        <div class="mock" role="img" aria-label="Illustration d&#39;un centre médical chaleureux"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== À propos ===== -->
+  <section id="about">
+    <div class="container about">
+      <div class="card">
+        <h2>À propos du centre</h2>
+        <p class="sub">Notre mission : améliorer la qualité de vie des personnes vivant avec la drépanocytose grâce à une prise en charge complète et bienveillante.</p>
+        <ul>
+          <li>Prévention &amp; dépistage précoce</li>
+          <li>Suivi médical personnalisé</li>
+          <li>Éducation thérapeutique &amp; soutien aux familles</li>
+          <li>Programmes communautaires de sensibilisation</li>
+        </ul>
+      </div>
+      <div class="card">
+        <!-- TODO: remplacer par une photo du centre -->
+        <img src="./HopeSickle Care Center – Ensemble pour une vie plus saine_files/b8e0d2&amp;text=HopeSickle+Care+Center" alt="Photo du centre HopeSickle">
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section id="services">
+    <div class="container">
+      <h2>Nos services</h2>
+      <p class="sub">Une équipe dédiée pour une prise en charge globale, de la consultation au suivi quotidien.</p>
+
+      <div class="grid">
+        <article class="service">
+          <div class="icon" aria-hidden="true">🩺</div>
+          <h3>Consultation spécialisée</h3>
+          <p>Bilans complets, diagnostic et orientation thérapeutique avec nos hématologues.</p>
+        </article>
+        <article class="service">
+          <div class="icon" aria-hidden="true">🧬</div>
+          <h3>Suivi de la drépanocytose</h3>
+          <p>Plans de traitement individualisés, prévention des crises, transfusions programmées.</p>
+        </article>
+        <article class="service">
+          <div class="icon" aria-hidden="true">🥗</div>
+          <h3>Nutrition &amp; bien-être</h3>
+          <p>Conseils nutritionnels, hydratation, activité adaptée et gestion de la douleur.</p>
+        </article>
+        <article class="service">
+          <div class="icon" aria-hidden="true">📣</div>
+          <h3>Sensibilisation &amp; prévention</h3>
+          <p>Ateliers, campagnes scolaires et accompagnement psycho-social.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Équipe ===== -->
+  <section id="team">
+    <div class="container">
+      <h2>Notre équipe</h2>
+      <p class="sub">Des professionnels expérimentés, engagés pour des soins humains et de qualité.</p>
+
+      <div class="team">
+        <!-- Tu peux dupliquer et remplacer les infos ci-dessous -->
+        <div class="person">
+          <div class="avatar" role="img" aria-label="Portrait Dr. A. Sow"></div>
+          <h3>Dr. Aïcha Sow</h3>
+          <p>Hématologue</p>
+          <p style="margin-top:6px">10+ ans d’expérience en prise en charge drépanocytaire.</p>
+        </div>
+        <div class="person">
+          <div class="avatar" role="img" aria-label="Portrait Dr. M. Diallo"></div>
+          <h3>Dr. Mamadou Diallo</h3>
+          <p>Pédiatre</p>
+          <p style="margin-top:6px">Suivi des enfants et éducation thérapeutique.</p>
+        </div>
+        <div class="person">
+          <div class="avatar" role="img" aria-label="Portrait Mme K. Bah"></div>
+          <h3>Khady Bah</h3>
+          <p>Infirmière référente</p>
+          <p style="margin-top:6px">Coordination des soins &amp; prévention des crises.</p>
+        </div>
+        <div class="person">
+          <div class="avatar" role="img" aria-label="Portrait Mme F. Camara"></div>
+          <h3>Fatoumata Camara</h3>
+          <p>Diététicienne</p>
+          <p style="margin-top:6px">Programmes nutritionnels personnalisés.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Témoignages ===== -->
+  <section id="testimonials">
+    <div class="container">
+      <h2>Témoignages</h2>
+      <p class="sub">Ce que disent nos patients et leurs familles.</p>
+
+      <div class="carousel">
+        <div class="slides" id="slides">
+          <div class="slide">
+            <div class="t-row">
+              <div class="t-avatar" aria-hidden="true"></div>
+              <strong>Aïssatou • 24 ans</strong>
+            </div>
+            <p>“Équipe à l’écoute et très professionnelle. Mes crises sont mieux gérées depuis mon suivi ici.”</p>
+          </div>
+          <div class="slide">
+            <div class="t-row">
+              <div class="t-avatar" aria-hidden="true"></div>
+              <strong>Oumar • Papa de Mariama</strong>
+            </div>
+            <p>“On se sent accompagnés. Les ateliers nous ont beaucoup aidés à la maison.”</p>
+          </div>
+          <div class="slide">
+            <div class="t-row">
+              <div class="t-avatar" aria-hidden="true"></div>
+              <strong>Nadia • 31 ans</strong>
+            </div>
+            <p>“Prise en charge complète et humaine. Je recommande vivement.”</p>
+          </div>
+        </div>
+
+        <button class="ctrl prev" aria-label="Précédent" id="prev">‹</button>
+        <button class="ctrl next" aria-label="Suivant" id="next">›</button>
+        <div class="dots" id="dots" aria-label="Pagination témoignages"><button class="dot active" aria-label="Aller au témoignage 1"></button><button class="dot" aria-label="Aller au témoignage 2"></button><button class="dot" aria-label="Aller au témoignage 3"></button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Blog / Actualités ===== -->
+  <section id="blog">
+    <div class="container">
+      <h2>Blog &amp; Actualités</h2>
+      <p class="sub">Conseils santé, informations sur la drépanocytose et vie du centre.</p>
+
+      <div class="blog">
+        <article class="post">
+          <!-- TODO: remplacer image -->
+          <img src="./HopeSickle Care Center – Ensemble pour une vie plus saine_files/ffffff&amp;text=Conseils+Hydratation" alt="Conseils d’hydratation">
+          <div class="content">
+            <h3>Hydratation : un geste vital au quotidien</h3>
+            <p>Pourquoi boire régulièrement aide à prévenir certaines crises et améliore l’énergie.</p>
+          </div>
+        </article>
+        <article class="post">
+          <img src="./HopeSickle Care Center – Ensemble pour une vie plus saine_files/ffffff&amp;text=Suivi+Personnalisé" alt="Suivi personnalisé">
+          <div class="content">
+            <h3>Le suivi personnalisé chez HopeSickle</h3>
+            <p>Notre protocole de suivi et comment préparer votre première visite.</p>
+          </div>
+        </article>
+        <article class="post">
+          <img src="./HopeSickle Care Center – Ensemble pour une vie plus saine_files/ffffff&amp;text=Ateliers+Familles" alt="Ateliers familles">
+          <div class="content">
+            <h3>Ateliers familles : s’informer et s’entraider</h3>
+            <p>Rencontres mensuelles, conseils pratiques et échanges d’expérience.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Prendre rendez-vous ===== -->
+  <section id="booking">
+    <div class="container booking">
+      <div class="card">
+        <h2>Prendre rendez-vous</h2>
+        <p class="sub">Choisissez une date et indiquez votre besoin. Nous vous confirmons rapidement.</p>
+
+        <!-- Intégration Calendly (optionnelle) : décommente et remplace l'URL par la tienne
+        <div class="card" style="padding:0; overflow:hidden">
+          <iframe src="https://calendly.com/ton-lien/rendezvous" style="min-height:620px; width:100%; border:0"></iframe>
+        </div>
+        -->
+
+        <!-- Formulaire fallback -->
+        <form id="booking-form" novalidate="">
+          <div class="row">
+            <div class="field">
+              <label for="bk-name">Nom complet</label>
+              <input id="bk-name" name="name" placeholder="Votre nom" required="">
+            </div>
+            <div class="field">
+              <label for="bk-phone">Téléphone</label>
+              <input id="bk-phone" name="phone" inputmode="tel" placeholder="0033759590744" required="">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="bk-email">Email</label>
+              <input id="bk-email" name="email" type="email" placeholder="hopesicklecarecenter@yahoo.com" required="">
+            </div>
+            <div class="field">
+              <label for="bk-service">Type de service</label>
+              <select id="bk-service" name="service" required="">
+                <option value="">Sélectionner</option>
+                <option>Consultation spécialisée</option>
+                <option>Suivi drépanocytose</option>
+                <option>Nutrition &amp; bien-être</option>
+                <option>Sensibilisation / prévention</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="field">
+              <label for="bk-date">Date souhaitée</label>
+              <input id="bk-date" name="date" type="date" required="">
+            </div>
+            <div class="field">
+              <label for="bk-time">Heure souhaitée</label>
+              <input id="bk-time" name="time" type="time" required="">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="bk-msg">Message (facultatif)</label>
+            <textarea id="bk-msg" name="message" placeholder="Décrivez votre besoin..."></textarea>
+          </div>
+
+          <div style="display:flex; gap:10px; align-items:center; margin-top:10px">
+            <button class="cta" type="submit">Envoyer la demande</button>
+            <small style="color:var(--muted)">Nous vous recontactons par téléphone ou email.</small>
+          </div>
+        </form>
+        <p id="booking-status" class="sub" aria-live="polite"></p>
+      </div>
+
+      <div class="card">
+        <h3>Besoin d’aide immédiate ?</h3>
+        <p>Appelez-nous ou écrivez-nous directement :</p>
+        <p><strong>Téléphone :</strong> <a href="tel:0033759590744">0033759590744</a><br>
+           <strong>Email :</strong> <a href="mailto:hopesicklecarecenter@yahoo.com">hopesicklecarecenter@yahoo.com</a></p>
+
+        <div class="map" role="img" aria-label="Localisation du centre (illustration)"></div>
+        <p style="margin-top:10px; color:var(--muted)">Ajoutez ici l’adresse précise quand elle est disponible.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Contact ===== -->
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="sub">Écrivez-nous, nous vous répondons rapidement.</p>
+
+      <div class="contact-card">
+        <div class="card">
+          <form id="contact-form" novalidate="">
+            <div class="row">
+              <div class="field">
+                <label for="c-name">Nom</label>
+                <input id="c-name" name="name" required="" placeholder="Votre nom">
+              </div>
+              <div class="field">
+                <label for="c-email">Email</label>
+                <input id="c-email" name="email" type="email" required="" placeholder="vous@exemple.com">
+              </div>
+            </div>
+            <div class="row">
+              <div class="field">
+                <label for="c-phone">Téléphone</label>
+                <input id="c-phone" name="phone" inputmode="tel" placeholder="0033...">
+              </div>
+              <div class="field">
+                <label for="c-subject">Sujet</label>
+                <input id="c-subject" name="subject" placeholder="Sujet de votre message">
+              </div>
+            </div>
+            <div class="field">
+              <label for="c-message">Message</label>
+              <textarea id="c-message" name="message" required="" placeholder="Votre message..."></textarea>
+            </div>
+            <div class="cta-row">
+              <button class="cta" type="submit">Envoyer</button>
+              <a class="cta ghost" href="mailto:hopesicklecarecenter@yahoo.com">Écrire par email</a>
+            </div>
+            <p id="contact-status" class="sub" aria-live="polite"></p>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Nos coordonnées</h3>
+          <p><strong>Téléphone :</strong> <a href="tel:0033759590744">0033759590744</a><br>
+             <strong>Email :</strong> <a href="mailto:hopesicklecarecenter@yahoo.com">hopesicklecarecenter@yahoo.com</a></p>
+          <p>Facebook • Instagram • LinkedIn (ajoutez vos liens officiels ici)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container">
+      <div class="fgrid">
+        <div>
+          <div class="brand">
+            <div class="logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2v20M2 12h20"></path>
+              </svg>
+            </div>
+            <strong>HopeSickle Care Center</strong>
+          </div>
+          <p style="margin-top:8px; color:#cdebf2">Centre spécialisé dans la prise en charge de la drépanocytose.</p>
+        </div>
+        <div>
+          <strong>Navigation</strong><br>
+          <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#about">À propos</a><br>
+          <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#services">Services</a><br>
+          <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#team">Équipe</a><br>
+          <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#blog">Blog</a>
+        </div>
+        <div>
+          <strong>Ressources</strong><br>
+          <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#testimonials">Témoignages</a><br>
+          <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#booking">Rendez-vous</a><br>
+          <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#contact">Contact</a>
+        </div>
+        <div>
+          <strong>Contact</strong><br>
+          <a href="tel:0033759590744">0033759590744</a><br>
+          <a href="mailto:hopesicklecarecenter@yahoo.com">hopesicklecarecenter@yahoo.com</a>
+        </div>
+      </div>
+
+      <div class="footbar">
+        <span>© <span id="year">2025</span> HopeSickle Care Center — Tous droits réservés</span>
+        <span><a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#">Mentions légales</a> • <a href="file:///C:/Users/Fatoumata%20D.%20DIALLO/Documents/DIVERS/index.html#">Politique de confidentialité</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== JS ===== -->
+  <script>
+    // Année auto
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Menu mobile
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    burger?.addEventListener('click', () => menu.classList.toggle('open'));
+
+    // Scroll des CTA
+    document.querySelectorAll('[data-scroll]').forEach(btn=>{
+      btn.addEventListener('click', e=>{
+        const sel = btn.getAttribute('data-scroll');
+        const el = document.querySelector(sel);
+        if(el){ el.scrollIntoView({behavior:'smooth'}); }
+      });
+    });
+
+    // Carousel très léger
+    const slides = document.getElementById('slides');
+    const dotsWrap = document.getElementById('dots');
+    const total = slides?.children.length || 0;
+    let index = 0;
+    for(let i=0;i<total;i++){
+      const d=document.createElement('button'); d.className='dot'+(i===0?' active':''); d.setAttribute('aria-label','Aller au témoignage '+(i+1));
+      d.addEventListener('click',()=>go(i));
+      dotsWrap.appendChild(d);
+    }
+    function go(i){
+      index = (i+total)%total;
+      slides.style.transform = `translateX(-${index*100}%)`;
+      [...dotsWrap.children].forEach((d,k)=>d.classList.toggle('active',k===index));
+    }
+    document.getElementById('prev')?.addEventListener('click',()=>go(index-1));
+    document.getElementById('next')?.addEventListener('click',()=>go(index+1));
+
+    // Validation & "envoi" Booking (simulé)
+    const bookingForm = document.getElementById('booking-form');
+    const bookingStatus = document.getElementById('booking-status');
+    bookingForm?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      if(!bookingForm.checkValidity()){ bookingStatus.textContent = "Merci de compléter tous les champs obligatoires."; return; }
+      const data = Object.fromEntries(new FormData(bookingForm).entries());
+      bookingStatus.textContent = "Votre demande a bien été envoyée. Nous vous contacterons rapidement.";
+      bookingForm.reset();
+      // TODO: connecter à votre backend / Google Forms / Airtable / EmailJS / Zapier
+      console.log("Booking:", data);
+    });
+
+    // Validation & "envoi" Contact (simulé)
+    const contactForm = document.getElementById('contact-form');
+    const contactStatus = document.getElementById('contact-status');
+    contactForm?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      if(!contactForm.checkValidity()){ contactStatus.textContent = "Merci de compléter les champs requis."; return; }
+      const data = Object.fromEntries(new FormData(contactForm).entries());
+      contactStatus.textContent = "Message envoyé. Nous reviendrons vers vous rapidement.";
+      contactForm.reset();
+      // TODO: connecter à votre backend / service email
+      console.log("Contact:", data);
+    });
+  </script>
+
+
+</body></html>
